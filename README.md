@@ -42,4 +42,4 @@ As SVC() does not work with strings, pandas.get_dummies is needed to create a on
 
 There are two values of poisonous "p" and edible "e" for 'class' means that pandas.get_dummies, when applied to the 'class' column of mushrooms.csv, will return a 2-column (p,e) 8125-row dataframe , which prevents us from using the SVC for binary classification; since a value of 1 in a column of this dataframe means a value of 0 in the only other column of this dataframe, we can ignore the poisonous 'p' column of the dataframe to proceed with the binary classification without losing any information.
 
-There are various kernel types you may use to tailor the algorithm, but I only saw a difference -- a minor in accuracy -- when using the 'sigmoid' kernel type. Otherwise, the accuracy was near 100%. 
+There are various kernel types you may use to tailor the algorithm, but I only saw a minor difference -- in accuracy -- when using the 'sigmoid' kernel type. Otherwise, the accuracy was near 100%. I split the dataset into 70% training and 30% testing, and tweaking this ratio lead to minor differences in performance as well.

@@ -29,3 +29,17 @@ Submissions will be evaluated holistically and based on a combination of effort,
 **You may use any programming language you feel most comfortable. We recommend Python because it is the easiest to implement. You're allowed to use any library or API you want to implement this, just document which ones you used in this README file.** Try to complete this as soon as possible.
 
 Regardless if you can or cannot answer the question, provide a short explanation of how you got your solution or how you think it can be solved in your README.md file. However, we highly recommend giving the challenge a try, you just might learn something new!
+
+# SOLUTION:
+
+Multi-class classification (including binary classification) can be performed using Support Vector Machines, which is supported in the scikit-learn modules. I've worked with pandas and scikit-learn before, so I'll stick to those as well for this challenge.
+
+Maybe it's because I'm more familiar with it now, but I found this to be much easier. My old hand-me-down laptop still crashes half the time trying to run this thing, though.
+
+Essentially, just separate the 22 attributes into one dataframe and the one-column classification of poisonous/edible into one dataframe, split into testing and training sets, feed that into a Support Vector Classification from sklearn.svm, predict the test data, and print out a confusion matrix and classification report.
+
+As SVC() does not work with strings, pandas.get_dummies is needed to create a one-hot encoding of the data. To demonstrate, if we use get_dummies on the column gill_spacing from mushrooms.csv, which has three possible values of c, w, d, then a dataframe consisting of 3 columns (c,w,d) and 8125 rows (there are 8125 mushrooms) will be generated, with each row having only a single cell with the value of 1 -- in the column corresponding to whatever of the three possible values was present in gill_spacing each individual row.
+
+There are two values of poisonous "p" and edible "e" for 'class' means that pandas.get_dummies, when applied to the 'class' column of mushrooms.csv, will return a 2-column (p,e) 8125-row dataframe , which prevents us from using the SVC for binary classification; since a value of 1 in a column of this dataframe means a value of 0 in the only other column of this dataframe, we can ignore the poisonous 'p' column of the dataframe to proceed with the binary classification without losing any information.
+
+There are various kernel types you may use to tailor the algorithm, but I only saw a difference -- a minor in accuracy -- when using the 'sigmoid' kernel type. Otherwise, the accuracy was near 100%. 

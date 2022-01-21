@@ -45,5 +45,3 @@ There are two values of poisonous "p" and edible "e" for the column named 'class
 There are various [kernel types](https://scikit-learn.org/stable/modules/svm.html#svm-kernels) you may use to tailor the algorithm, but I only saw a minor difference in accuracy when using the 'sigmoid' kernel type. Otherwise, the accuracy was near 100%. I split the dataset into 70% training and 30% testing, and tweaking this ratio lead to minor differences in performance as well.
 
 ![bloop](https://media.discordapp.net/attachments/803697311871270934/933997040206221312/unknown.png)
-
-I'm not quite sure 

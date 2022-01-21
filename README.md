@@ -42,6 +42,6 @@ As SVC() does not work with strings, [pandas.get_dummies](https://pandas.pydata.
 
 There are two values of poisonous "p" and edible "e" for the column named 'class' in mushrooms.csv, which means that applying pandas.get_dummies to the 'class', will return a 2-column (p,e) 8125-row dataframe , which prevents us from using the SVC for binary classification; since a value of 1 in a column of this dataframe means a value of 0 in the only other column of this dataframe, we can ignore the poisonous 'p' column of the dataframe to proceed with the binary classification without losing any information.
 
-There are various [kernel types](https://scikit-learn.org/stable/modules/svm.html#svm-kernels) you may use to tailor the algorithm, but I only saw a minor difference in accuracy when using the 'sigmoid' kernel type. Otherwise, the accuracy was near 100%. I split the dataset into 70% training and 30% testing, and tweaking this ratio lead to minor differences in performance as well.
+There are various [kernel types](https://scikit-learn.org/stable/modules/svm.html#svm-kernels) you may use to tailor the algorithm; I only saw a minor difference in accuracy when using the 'sigmoid' kernel type, so I kept with a linear kernel. Otherwise, the accuracy was near 100%. I split the dataset into 70% training and 30% testing, and tweaking this ratio lead to minor differences in performance as well.
 
 ![bloop](https://media.discordapp.net/attachments/803697311871270934/933997040206221312/unknown.png)
